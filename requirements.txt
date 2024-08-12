@@ -1,3 +1,4 @@
+dj_database_url==2.2.0
 Django==3.2.23
 pandas==2.0.3
 python-dotenv==1.0.1
