@@ -1,20 +1,20 @@
 databases:
-  - name: DevTestdb
+  - name: devtestdb
     plan: free
-    databaseName: DevTest
-    user: DevTest
+    databaseName: devtest
+    user: devtest
 
 services:
   - type: web
     plan: free
-    name: DevTest
+    name: devtest
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "python -m gunicorn DevTest.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: DevTestdb
+          name: devtestdb
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
